@@ -12,8 +12,8 @@
 
     "accessories": [
         {
-            "accessory": "VSX",
-            "name": "Pioneer VSX-921",
+            "accessory": "VSXLEGACY",
+            "name": "Pioneer VSX 1020",
             "description": "My Reciever",
             "ip": "192.168.178.20"
         }
