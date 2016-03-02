@@ -5,10 +5,10 @@ module.exports = function(homebridge) {
 
   Service = homebridge.hap.Service;
   Characteristic = homebridge.hap.Characteristic;
-  homebridge.registerAccessory("homebridge-vsx", "VSX", VSX);
+  homebridge.registerAccessory("homebridge-vsx-legacy", "VSXLEGACY", VSXLEGACY);
 }
 
-function VSX(log, config) {
+function VSXLEGACY(log, config) {
   this.log = log;
   this.name = config.name;
   this.HOST = config.ip;
@@ -20,11 +20,11 @@ function VSX(log, config) {
     .on("get", this.getOn.bind(this));
 }
 
-VSX.prototype.getServices = function() {
+VSXLEGACY.prototype.getServices = function() {
   return [this.service];
 }
 
-VSX.prototype.getOn = function(callback) {
+VSXLEGACY.prototype.getOn = function(callback) {
   
   var client = new net.Socket();
   client.connect(this.PORT, this.HOST, function() {
@@ -72,7 +72,7 @@ VSX.prototype.getOn = function(callback) {
 
 
 
-VSX.prototype.setOn = function(on, callback) {
+VSXLEGACY.prototype.setOn = function(on, callback) {
 
   if(on){
     var client = new net.Socket();
